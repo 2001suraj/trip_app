@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "263891756096",
+    "project_id": "smart-tourist-guide-a",
+    "storage_bucket": "smart-tourist-guide-a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:263891756096:android:c8bb87c1e3caab907e6ba5",
+        "android_client_info": {
+          "package_name": "com.suraj.smart_tourist_guide"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "263891756096-ttdfsi04ilupbjune8f01k4h21tb8ft5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAzW415rg0h9_w6gKXyH5yFu0mBSOTwaQ8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "263891756096-ttdfsi04ilupbjune8f01k4h21tb8ft5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
