@@ -3,8 +3,9 @@
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:smart_tourist_guide/presentations/screens/discover_screen.dart';
+import 'package:smart_tourist_guide/presentations/screens/favotite_screen.dart';
 import 'package:smart_tourist_guide/presentations/screens/home_screen.dart';
-
+import 'package:smart_tourist_guide/presentations/screens/profile_screen.dart';
 
 class MainScreen extends StatefulWidget {
   static const String routeName = 'main-screen';
@@ -18,7 +19,8 @@ class _MainScreenState extends State<MainScreen> {
   List<Widget> pages = [
     HomeScreen(),
     DiscoverScreen(),
-
+    FavoriteScreen(),
+    ProfileScreen(),
   ];
 
   int currentpage = 0;
@@ -50,7 +52,18 @@ class _MainScreenState extends State<MainScreen> {
                 size: 25,
               ),
               title: 'Discover'),
-        
+          TabItem(
+              icon: Icon(
+                Icons.favorite,
+                size: 25,
+              ),
+              title: 'Favorite'),
+          TabItem(
+              icon: Icon(
+                Icons.person,
+                size: 25,
+              ),
+              title: 'profile'),
         ],
       ),
     );

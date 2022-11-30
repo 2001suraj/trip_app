@@ -3,7 +3,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:smart_tourist_guide/data/constants/demo_data.dart';
 import 'package:smart_tourist_guide/presentations/pages/individual_pages.dart';
 
 class CarouselSliderWidget extends StatelessWidget {

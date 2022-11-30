@@ -23,6 +23,7 @@ class WriteRepo {
             log: log)
         .toMap());
   }
+
   Future most_visit(
       {required String name,
       required String location,
@@ -43,6 +44,25 @@ class WriteRepo {
             log: log)
         .toMap());
   }
+
+  Future fav(
+      {required String name,
+      required String location,
+      required String des1,
+      required String des2,
+      required double lat,
+      required double log,
+      required String image}) async {
+    var info = storage.collection('fav').doc(name);
+
+    info.set(LocationModel(
+            name: name,
+            location: location,
+            image: image,
+            des1: des1,
+            des2: des2,
+            lat: lat,
+            log: log)
+        .toMap());
+  }
 }
-
-

@@ -8,6 +8,7 @@ import 'package:smart_tourist_guide/presentations/pages/auth_screen.dart';
 import 'package:smart_tourist_guide/presentations/pages/onboarding__page.dart';
 import 'package:smart_tourist_guide/presentations/routes/app_route.dart';
 
+
 int? initalscreen;
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -33,6 +34,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => AuthBloc(UserRepo())..add(AuthenticationEvent()),
         ),
+   
     
       ],
       child: MaterialApp(
