@@ -90,23 +90,64 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
                                         builder: (context) => IndividualPages(
                                             aa: snapshot.data!.docs[index])));
                               },
-                              child: Row(
-                                children: [
-                                  Container(
-                                    height: 120,
-                                    width: 150,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(20),
-                                      image: DecorationImage(
-                                          image: NetworkImage(
-                                            snapshot.data!.docs[index]['image'],
-                                          ),
-                                          fit: BoxFit.cover),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                    color: Colors.blue.withOpacity(0.091),
+                                    borderRadius: BorderRadius.circular(20),
+                                    border: Border.all(
+                                        color: Colors.lightBlueAccent)),
+                                margin: EdgeInsets.all(10),
+                                child: Row(
+                                  children: [
+                                    Container(
+                                      height: 120,
+                                      width: 150,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(20),
+                                        image: DecorationImage(
+                                            image: NetworkImage(
+                                              snapshot.data!.docs[index]
+                                                  ['image'],
+                                            ),
+                                            fit: BoxFit.cover),
+                                      ),
+                                      margin: EdgeInsets.all(10),
                                     ),
-                                    margin: EdgeInsets.all(10),
-                                  ),
-                                  Text(snapshot.data!.docs[index]['name']),
-                                ],
+                                    Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        SizedBox(
+                                          height: 35,
+                                          width: 150,
+                                          child: Text(
+                                            snapshot.data!.docs[index]['name'],
+                                            maxLines: 2,
+                                            overflow: TextOverflow.ellipsis,
+                                            style: TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          height: 50,
+                                          width: 150,
+                                          child: Text(
+                                            snapshot.data!.docs[index]
+                                                ['location'],
+                                            maxLines: 3,
+                                            overflow: TextOverflow.ellipsis,
+                                            style: TextStyle(
+                                              color: Colors.grey,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
                               ),
                             );
                           },
