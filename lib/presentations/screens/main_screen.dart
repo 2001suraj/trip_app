@@ -60,10 +60,10 @@ class _MainScreenState extends State<MainScreen> {
               title: 'Favorite'),
           TabItem(
               icon: Icon(
-                Icons.person,
+                Icons.logout,
                 size: 25,
               ),
-              title: 'profile'),
+              title: 'logout'),
         ],
       ),
     );

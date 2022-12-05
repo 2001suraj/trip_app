@@ -65,4 +65,16 @@ class WriteRepo {
             log: log)
         .toMap());
   }
+
+  Future userinfo(
+      {required String name,
+      required String email,
+      required String bod}) async {
+    var useri = await storage.collection('userinfo').doc(name);
+    useri.set({
+      'name' : name,
+      'email': email,
+      'bod': bod,
+    });
+  }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smart_tourist_guide/business_logic/auth/auth_bloc.dart';
+import 'package:smart_tourist_guide/data/repo/location_repo.dart';
 import 'package:smart_tourist_guide/presentations/screens/main_screen.dart';
 
 class CustomSignUpbtn extends StatefulWidget {
@@ -73,6 +74,10 @@ class _CustomSignUpbtnState extends State<CustomSignUpbtn> {
                 password: widget.password.text,
                 date: widget.date.text,
                 name: widget.name.text));
+            WriteRepo().userinfo(
+                name: widget.name.text,
+                email: widget.email.text,
+                bod: widget.date.text);
           },
           child: Container(
             height: 60,

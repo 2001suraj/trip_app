@@ -9,24 +9,20 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          automaticallyImplyLeading: false,
-          actions: [
-            IconButton(
-              onPressed: () {
-                context.read<AuthBloc>().add(LogoutEvent());
-              },
-              icon: Icon(Icons.logout),
-            ),
-          ],
-        ),
         body: BlocListener<AuthBloc, AuthState>(
-          listener: (context, state) {
-            if (state is AuthsuccessState) {
-              LoginPage();
-            }
+      listener: (context, state) {
+        if (state is AuthsuccessState) {
+          LoginPage();
+        }
+      },
+      child: Center(
+        child: TextButton(
+          onPressed: () {
+            context.read<AuthBloc>().add(LogoutEvent());
           },
-          child: Container(),
-        ));
+          child: Text('logout'),
+        ),
+      ),
+    ));
   }
 }
