@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smart_tourist_guide/business_logic/auth/auth_bloc.dart';
 import 'package:smart_tourist_guide/data/repo/location_repo.dart';
+import 'package:smart_tourist_guide/data/services/user_service.dart';
 import 'package:smart_tourist_guide/presentations/screens/main_screen.dart';
+import 'package:smart_tourist_guide/presentations/widgets/show_snackbar.dart';
 
 class CustomSignUpbtn extends StatefulWidget {
   const CustomSignUpbtn({
@@ -69,15 +71,27 @@ class _CustomSignUpbtnState extends State<CustomSignUpbtn> {
             setState(() {
               isclicked = true;
             });
-            context.read<AuthBloc>().add(SignupEvent(
-                email: widget.email.text,
-                password: widget.password.text,
-                date: widget.date.text,
-                name: widget.name.text));
-            WriteRepo().userinfo(
-                name: widget.name.text,
-                email: widget.email.text,
-                bod: widget.date.text);
+            if (widget.name.text.isNotEmpty &&
+                widget.email.text.isNotEmpty &&
+                widget.date.text.isNotEmpty) {
+              context.read<AuthBloc>().add(SignupEvent(
+                  email: widget.email.text,
+                  password: widget.password.text,
+                  date: widget.date.text,
+                  name: widget.name.text));
+              WriteRepo().userinfo(
+                  name: widget.name.text,
+                  email: widget.email.text,
+                  bod: widget.date.text);
+
+              UserService().sett(name: widget.name.text);
+            } else {
+              snowsnackBar(
+                  context: context,
+                  child: Container(
+                    child: Text('please fill all fields'),
+                  ));
+            }
           },
           child: Container(
             height: 60,

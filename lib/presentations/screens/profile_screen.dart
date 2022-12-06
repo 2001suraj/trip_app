@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smart_tourist_guide/business_logic/auth/auth_bloc.dart';
+import 'package:smart_tourist_guide/data/services/user_service.dart';
 import 'package:smart_tourist_guide/presentations/pages/login_page.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -19,6 +20,7 @@ class ProfileScreen extends StatelessWidget {
         child: TextButton(
           onPressed: () {
             context.read<AuthBloc>().add(LogoutEvent());
+            UserService().clear();
           },
           child: Text('logout'),
         ),
