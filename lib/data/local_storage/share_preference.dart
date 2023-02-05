@@ -1,19 +1,21 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
-class UserService {
-  Future sett({required String name}) async {
+class LocalStorage {
+  Future writedata({required String text}) async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
-    preferences.setString('name', name);
+    preferences.setString('text', text);
   }
 
-  Future<String> gett() async {
+  Future<String> readdata() async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
-    var aa = preferences.getString('name');
-    return aa!;
+    var data = preferences.getString('text');
+    return data!;
   }
 
-  Future clear() async {
+  Future clear({required String key}) async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
-    preferences.clear();
+    preferences.remove(key);
   }
+ 
+  
 }

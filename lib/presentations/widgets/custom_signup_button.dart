@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smart_tourist_guide/business_logic/auth/auth_bloc.dart';
+import 'package:smart_tourist_guide/data/local_storage/share_preference.dart';
 import 'package:smart_tourist_guide/data/repo/location_repo.dart';
-import 'package:smart_tourist_guide/data/services/user_service.dart';
 import 'package:smart_tourist_guide/presentations/screens/main_screen.dart';
 import 'package:smart_tourist_guide/presentations/widgets/show_snackbar.dart';
 
@@ -83,8 +83,7 @@ class _CustomSignUpbtnState extends State<CustomSignUpbtn> {
                   name: widget.name.text,
                   email: widget.email.text,
                   bod: widget.date.text);
-
-              UserService().sett(name: widget.name.text);
+              LocalStorage().writedata(text: widget.email.text);
             } else {
               snowsnackBar(
                   context: context,

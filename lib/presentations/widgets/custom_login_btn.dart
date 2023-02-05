@@ -1,24 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:smart_tourist_guide/data/local_storage/share_preference.dart';
 import 'package:smart_tourist_guide/presentations/screens/main_screen.dart';
 
 import '../../business_logic/auth/auth_bloc.dart';
 
 class CustomLoginbtn extends StatefulWidget {
-   const CustomLoginbtn(
-   
-
-      {Key? key,
-      required this.email,
-
-      required this.password,
-      }
-      )
-      : super(key: key);
+  const CustomLoginbtn({
+    Key? key,
+    required this.email,
+    required this.password,
+  }) : super(key: key);
 
   final TextEditingController email;
   final TextEditingController password;
-
 
   @override
   State<CustomLoginbtn> createState() => _CustomLoginbtnState();
@@ -74,6 +69,7 @@ class _CustomLoginbtnState extends State<CustomLoginbtn> {
                   LoginEvent(
                       email: widget.email.text, password: widget.password.text),
                 );
+            LocalStorage().writedata(text: widget.email.text);
           },
           child: Text('Login'),
         ),

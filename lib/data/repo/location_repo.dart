@@ -29,57 +29,61 @@ class WriteRepo {
         .toMap());
   }
 
-  Future most_visit(
-      {required String name,
-      required String location,
-      required String des1,
-      required String des2,
-      required double lat,
-      required double log,
-      required String image}) async {
-    var info = storage.collection('most_visit').doc(name);
+  // Future most_visit(
+  //     {required String name,
+  //     required String location,
+  //     required String des1,
+  //     required String des2,
+  //     required double lat,
+  //     required double log,
+  //     required String image}) async {
+  //   var info = storage.collection('most_visit').doc(name);
 
-    info.set(LocationModel(
-            name: name,
-            location: location,
-            image: image,
-            des1: des1,
-            des2: des2,
-            lat: lat,
-            log: log)
-        .toMap());
-  }
+  //   info.set(LocationModel(
+  //           name: name,
+  //           location: location,
+  //           image: image,
+  //           des1: des1,
+  //           des2: des2,
+  //           lat: lat,
+  //           log: log)
+  //       .toMap());
+  // }
 
-  Future fav(
-      {required String name,
-      required String fname,
-      required String location,
-      required String des1,
-      required String des2,
-      required double lat,
-      required double log,
-      required String image}) async {
-    var info = storage.collection('userinfo').doc(fname).collection('fav').add(
-        LocationModel(
-                name: name,
-                location: location,
-                image: image,
-                des1: des1,
-                des2: des2,
-                lat: lat,
-                log: log)
-            .toMap());
+  // Future fav(
+  //     {required String name,
+  //     required String fname,
+  //     required String location,
+  //     required String des1,
+  //     required String des2,
+  //     required double lat,
+  //     required double log,
+  //     required String image}) async {
+  //   var info = storage.collection('userinfo').doc(fname).update({
+  //     'isfav': FieldValue.arrayUnion([]
+  //         .map((e) => {
+  //               LocationModel(
+  //                   name: name,
+  //                   location: location,
+  //                   image: image,
+  //                   des1: des1,
+  //                   des2: des2,
+  //                   lat: lat,
+  //                   log: log)
+  //             })
+  //         .toList())
+  //   });
 
-    // info.set(LocationModel(
-    //         name: name,
-    //         location: location,
-    //         image: image,
-    //         des1: des1,
-    //         des2: des2,
-    //         lat: lat,
-    //         log: log)
-    //     .toMap());
-  }
+  //   // info.set(LocationModel(
+  //   //         name: name,
+  //   //         location: location,
+  //   //         image: image,
+  //   //         des1: des1,
+  //   //         des2: des2,
+  //   //         lat: lat,
+  //   //         log: log)
+  //   //     .toMap());
+  // }
 
   Future userinfo(
       {required String name,
@@ -89,5 +93,3 @@ class WriteRepo {
     useri.set(UserInfo(name: name, email: email, bod: bod).toMap());
   }
 }
-
-

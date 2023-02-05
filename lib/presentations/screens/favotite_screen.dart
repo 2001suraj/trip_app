@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:smart_tourist_guide/data/services/user_service.dart';
+import 'package:smart_tourist_guide/data/local_storage/share_preference.dart';
 import 'package:smart_tourist_guide/presentations/pages/individual_pages.dart';
 
 class FavoriteScreen extends StatelessWidget {
@@ -23,12 +23,12 @@ class FavoriteScreen extends StatelessWidget {
                 padding: EdgeInsets.all(20),
                 height: MediaQuery.of(context).size.height * 0.8,
                 child: FutureBuilder(
-                    future: UserService().gett(),
+                    future: LocalStorage().readdata(),
                     builder: (context1, snapshot) {
                       return StreamBuilder(
                         stream: FirebaseFirestore.instance
                             .collection('userinfo')
-                            .doc(snapshot.data!.toString())
+                            .doc(snapshot.data.toString())
                             .collection('fav')
                             .snapshots(),
                         builder:

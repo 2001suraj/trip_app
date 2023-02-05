@@ -3,9 +3,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:smart_tourist_guide/data/local_storage/share_preference.dart';
 import 'package:smart_tourist_guide/data/model/place_model.dart';
 import 'package:smart_tourist_guide/data/repo/location_repo.dart';
-import 'package:smart_tourist_guide/data/services/user_service.dart';
 import 'package:smart_tourist_guide/presentations/screens/main_screen.dart';
 
 class IndividualPages extends StatelessWidget {
@@ -172,62 +172,62 @@ class _ImageContainerState extends State<ImageContainer> {
                 color: Colors.black,
               ),
             ),
-            isfav == true
-                ? FutureBuilder(
-                    future: UserService().gett(),
-                    builder: (context, snapshot) {
-                      return MaterialButton(
-                        onPressed: () {
-                          WriteRepo().fav(
-                              fname: snapshot.data!.toString(),
-                              name: widget.aa['name'],
-                              location: widget.aa['location'],
-                              des1: widget.aa['des1'],
-                              des2: widget.aa['des2'],
-                              lat: widget.aa['lat'],
-                              log: widget.aa['log'],
-                              image: widget.aa['image']);
-                          setState(() {
-                            isfav = false;
-                          });
+            // isfav == true
+            //     ? FutureBuilder(
+            //         future: LocalStorage().readdata(),
+            //         builder: (context, snapshot) {
+            //           return MaterialButton(
+            //             onPressed: () {
+            //               WriteRepo().fav(
+            //                   fname: snapshot.data!.toString(),
+            //                   name: widget.aa['name'],
+            //                   location: widget.aa['location'],
+            //                   des1: widget.aa['des1'],
+            //                   des2: widget.aa['des2'],
+            //                   lat: widget.aa['lat'],
+            //                   log: widget.aa['log'],
+            //                   image: widget.aa['image']);
+            //               setState(() {
+            //                 isfav = false;
+            //               });
 
-                          // Navigator.push(
-                          //     context,
-                          //     MaterialPageRoute(
-                          //         builder: (context) => FavoriteScreen()));
-                        },
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10)),
-                        height: 40,
-                        minWidth: 20,
-                        color: Colors.white,
-                        child: Icon(
-                          Icons.favorite_border,
-                          color: Colors.black,
-                        ),
-                      );
-                    },
-                  )
-                : MaterialButton(
-                    onPressed: () {
-                      final uu = FirebaseFirestore.instance
-                          .collection('fav')
-                          .doc(widget.aa['name']);
-                      uu.delete();
-                      setState(() {
-                        isfav = true;
-                      });
-                    },
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10)),
-                    height: 40,
-                    minWidth: 20,
-                    color: Colors.white,
-                    child: Icon(
-                      Icons.favorite,
-                      color: Colors.red,
-                    ),
-                  ),
+            //               // Navigator.push(
+            //               //     context,
+            //               //     MaterialPageRoute(
+            //               //         builder: (context) => FavoriteScreen()));
+            //             },
+            //             shape: RoundedRectangleBorder(
+            //                 borderRadius: BorderRadius.circular(10)),
+            //             height: 40,
+            //             minWidth: 20,
+            //             color: Colors.white,
+            //             child: Icon(
+            //               Icons.favorite_border,
+            //               color: Colors.black,
+            //             ),
+            //           );
+            //         },
+            //       )
+            //     : MaterialButton(
+            //         onPressed: () {
+            //           final uu = FirebaseFirestore.instance
+            //               .collection('fav')
+            //               .doc(widget.aa['name']);
+            //           uu.delete();
+            //           setState(() {
+            //             isfav = true;
+            //           });
+            //         },
+            //         shape: RoundedRectangleBorder(
+            //             borderRadius: BorderRadius.circular(10)),
+            //         height: 40,
+            //         minWidth: 20,
+            //         color: Colors.white,
+            //         child: Icon(
+            //           Icons.favorite,
+            //           color: Colors.red,
+            //         ),
+            //       ),
           ],
         ),
       ),
